@@ -1,1 +1,230 @@
-Bonjur lume
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>cdkw's website</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;900&display=swap" rel="stylesheet">
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            font-family: 'Montserrat', sans-serif;
+            background-color: #000000;
+            background-image: url('./images/background.png');
+            background-repeat: no-repeat;
+            background-position: top left;
+            background-size: cover;
+            color: #ffffff;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 30px 215px;
+            font-size: 1.35em;
+            letter-spacing: 0.05em;
+            transition: padding 0.3s ease;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 1.15em;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 900; /* montserrat extrabold */
+            letter-spacing: 0.1em;
+        }
+
+        header a {
+            position: relative;
+            font-size: 0.7em;
+            text-decoration: none;
+            color: #ffffff;
+            transition: all 0.3s ease;
+            font-weight: 300; /* montserrat light*/
+        }
+
+        header a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background-color: #ffffff;
+            bottom: -5px; /* sub ala */
+            left: 0;
+            transition: width 0.3s ease;
+        }
+
+        header a:hover::after {
+            width: 100%; /* dute pana in cealalta parte */
+        }
+
+
+        .content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: calc(100% - 150px);
+            padding: 0 215px;
+        }
+
+        .content-left {
+            max-width: 50%; /* jumate */
+        }
+
+        .content-left h2 {
+            font-size: 4em;
+            font-weight: 900;
+            margin: 0;
+            line-height: 1.2;
+        }
+
+        .content-left p {
+            font-size: 1em;
+            margin: 10px 0 30px;
+            font-weight: 300;
+        }
+
+           .buttons {
+       display: flex;
+        gap: 20px;
+    }
+
+    .buttons a {
+        padding: 10px 20px;
+        font-size: 0.9em;
+        font-weight: 900;
+        text-decoration: none;
+        color: #ffffff;
+        transition: transform 0.3s ease, background-color 0.3s ease, border-color 0.3s ease;
+        text-transform: uppercase;
+    }
+
+    .buttons .btn-green {
+        background-color: #00cc66;
+        border: 2px solid #00cc66;
+    }
+
+    .buttons .btn-outline {
+        background-color: transparent;
+        border: 2px solid #ffffff;
+    }
+
+/* Animatii */
+    .buttons .btn-green:hover {
+        background-color: #00ad57;
+        transform: scale(1.1);
+    }
+
+    .buttons .btn-outline:hover {
+        background-color: #ffffff;
+        color: #000000;
+        border-color: #00cc66;
+        transform: scale(1.1); 
+    }
+
+
+        .content-right img {
+            width: 300px;
+            transition: width 0.3s ease;
+        }
+
+        @media screen and (max-width: 1200px) {
+            header {
+                padding: 30px 150px;
+            }
+
+            .content {
+                padding: 0 150px;
+            }
+
+            .content-right img {
+                width: 250px;
+            }
+        }
+
+        @media screen and (max-width: 800px) {
+            header {
+                padding: 30px 80px;
+            }
+
+            .content {
+                padding: 0 80px;
+            }
+
+            .content-left h2 {
+                font-size: 2.5em;
+            }
+
+            .content-right img {
+                width: 200px;
+            }
+        }
+
+        @media screen and (max-width: 600px) {
+            header {
+                padding: 30px 50px;
+            }
+
+            .content {
+                padding: 0 50px;
+            }
+
+            .content-left h2 {
+                font-size: 2em;
+            }
+
+            .content-right img {
+                width: 150px;
+            }
+        }
+
+        @media screen and (max-width: 400px) {
+            header {
+                padding: 30px 20px;
+            }
+
+            .content {
+                padding: 0 20px;
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .content-left {
+                max-width: 100%;
+                margin-bottom: 20px;
+            }
+
+            .content-right img {
+                align-self: center;
+                width: 120px;
+            }
+
+            .content-left h2 {
+                font-size: 1.5em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>CDKW.TECH</h1>
+        <a href="https://discord.gg/GnYJa48t7H">CONTACT ME!</a>
+    </header>
+    <div class="content">
+        <div class="content-left">
+            <h2>"It's not only<br>the hills that<br>have eyes"</h2>
+            <p>I'm cdkw, a cybersecurity student from Eastern Europe.<br>Thank you for visiting my website! 😘</p>
+            <div class="buttons">
+                <a href="./error.html" class="btn-green">My projects and blogs</a>
+                <a href="./error.html" class="btn-outline">About me</a>
+            </div>
+        </div>
+        <div class="content-right">
+            <img src="./images/torpc.png" alt="Logo">
+        </div>
+    </div>
+</body>
+</html>
