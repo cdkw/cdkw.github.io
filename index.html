@@ -27,7 +27,10 @@
             font-size: 1.35em;
             letter-spacing: 0.05em;
             transition: padding 0.3s ease;
+            background-color: rgba(0, 0, 0, 0.3); /* Optional: Adds a semi-transparent background color */
+            backdrop-filter: blur(0.6px); /* Apply blur effect */
         }
+
 
         header h1 {
             margin: 0;
@@ -43,7 +46,7 @@
             text-decoration: none;
             color: #ffffff;
             transition: all 0.3s ease;
-            font-weight: 300; /* montserrat light*/
+            font-weight: 300; /* montserrat light */
         }
 
         header a::after {
@@ -61,13 +64,14 @@
             width: 100%; /* dute pana in cealalta parte */
         }
 
-
         .content {
             display: flex;
             justify-content: space-between;
             align-items: center;
             height: calc(100% - 150px);
             padding: 0 215px;
+            background-color: rgba(0, 0, 0, 0.1); /* culoare transparenta */
+            backdrop-filter: blur(0.3px); /* blur */
         }
 
         .content-left {
@@ -87,44 +91,43 @@
             font-weight: 300;
         }
 
-           .buttons {
-       display: flex;
-        gap: 20px;
-    }
+        .buttons {
+            display: flex;
+            gap: 20px;
+        }
 
-    .buttons a {
-        padding: 10px 20px;
-        font-size: 0.9em;
-        font-weight: 900;
-        text-decoration: none;
-        color: #ffffff;
-        transition: transform 0.3s ease, background-color 0.3s ease, border-color 0.3s ease;
-        text-transform: uppercase;
-    }
+        .buttons a {
+            padding: 10px 20px;
+            font-size: 0.9em;
+            font-weight: 900;
+            text-decoration: none;
+            color: #ffffff;
+            transition: transform 0.3s ease, background-color 0.3s ease, border-color 0.3s ease;
+            text-transform: uppercase;
+        }
 
-    .buttons .btn-green {
-        background-color: #00cc66;
-        border: 2px solid #00cc66;
-    }
+        .buttons .btn-green {
+            background-color: #00cc66;
+            border: 2px solid #00cc66;
+        }
 
-    .buttons .btn-outline {
-        background-color: transparent;
-        border: 2px solid #ffffff;
-    }
+        .buttons .btn-outline {
+            background-color: transparent;
+            border: 2px solid #ffffff;
+        }
 
-/* Animatii */
-    .buttons .btn-green:hover {
-        background-color: #00ad57;
-        transform: scale(1.1);
-    }
+        /* Animatii */
+        .buttons .btn-green:hover {
+            background-color: #00ad57;
+            transform: scale(1.1);
+        }
 
-    .buttons .btn-outline:hover {
-        background-color: #ffffff;
-        color: #000000;
-        border-color: #00cc66;
-        transform: scale(1.1); 
-    }
-
+        .buttons .btn-outline:hover {
+            background-color: #ffffff;
+            color: #000000;
+            border-color: #00cc66;
+            transform: scale(1.1); 
+        }
 
         .content-right img {
             width: 300px;
@@ -140,12 +143,16 @@
                 padding: 0 150px;
             }
 
+            .content-left h2 {
+                font-size: 2.3em;
+            }
+
             .content-right img {
                 width: 250px;
             }
         }
 
-        @media screen and (max-width: 800px) {
+        @media screen and (max-width: 810px) {
             header {
                 padding: 30px 80px;
             }
@@ -163,31 +170,77 @@
             }
         }
 
-        @media screen and (max-width: 600px) {
+        @media screen and (max-width: 715px) {
             header {
-                padding: 30px 50px;
+                padding: 30px 80px;
             }
 
             .content {
-                padding: 0 50px;
+                padding: 0 80px;
             }
 
             .content-left h2 {
-                font-size: 2em;
+                font-size: 2.3em;
+            }
+
+            .content-right img {
+                width: 200px;
+            }
+
+        }
+
+        @media screen and (max-width: 600px) {
+            header {
+                padding: 30px 50px;
+                background-color: #000000;
+                justify-content: center;
+            }
+
+            header a {
+                display: none;
+            }
+
+            .content-left {
+                text-align: center;
+                max-width: 100%;
+            }
+
+            .content-right {
+                display: none;
+            }
+
+            .content-left h2 {
+                font-size: 3em;
             }
 
             .content-right img {
                 width: 150px;
             }
+
+            .content-left p {
+                font-size: 0.8em;
+            }
+
+            .content {
+                padding: 100px 50px;
+                flex-direction: column;
+                align-items: center;
+                height: auto;
+                position: relative;
+                background-color: rgba(0, 0, 0, 0.5);
+                backdrop-filter: blur(1px);
+            }
+
+            
         }
 
-        @media screen and (max-width: 400px) {
+        @media screen and (max-width: 433px) {
             header {
                 padding: 30px 20px;
             }
 
             .content {
-                padding: 0 20px;
+                padding: 100px 20px;
                 flex-direction: column;
                 align-items: flex-start;
             }
@@ -203,8 +256,20 @@
             }
 
             .content-left h2 {
-                font-size: 1.5em;
+                font-size: 3em;
             }
+
+            .content-left p {
+                font-size: 0.8em;
+            }
+
+            .content {
+                position: relative;
+                background-color: rgba(0, 0, 0, 0.5);
+                backdrop-filter: blur(1px);
+            }
+
+
         }
     </style>
 </head>
