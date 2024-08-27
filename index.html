@@ -213,6 +213,58 @@
             pointer-events: none;
         }
 
+/* ----------------------------------- FOOTER -------------------------------- */
+
+.footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    padding: 10px;
+    z-index: 10; /* Ensure it appears above other content */
+}
+
+.footer .dock {
+    display: flex;
+    gap: 15px;
+    padding: 5px;
+    background: rgba(0, 0, 0, 0.5); /* Slightly darker background for contrast */
+    border-radius: 12px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+.footer .dock a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    background: transparent;
+    border-radius: 50%;
+    transition: transform 0.3s ease, background 0.3s ease;
+    color: #fff;
+    text-decoration: none;
+}
+
+.footer .dock a i {
+    font-size: 24px;
+}
+
+.footer .dock a img {
+    width: 40px; /* Adjust to your desired icon size */
+    height: 40px; /* Adjust to your desired icon size */
+    transition: transform 0.3s ease, background 0.3s ease;
+    object-fit: contain; /* Ensures the icon fits within the specified dimensions */
+    border-radius: 25%;
+}
+.footer .dock a:hover {
+    background: #666;
+    transform: scale(1.2);
+}
+
+
 /*-------------------- MOBILE & DIFFERENT RESOLUTIONS SUPPORT ------------------------------*/
         @media screen and (max-width: 1400px) {
             .content-left h2 {
@@ -448,7 +500,7 @@
 <body>
     <header>
         <h1>CDKW.GITHUB.IO</h1>
-        <a href="https://discord.gg/GnYJa48t7H">CONTACT ME!</a>
+        <a href="mailto:NOEMAILYETPLEASEWAIT@gmail.com">CONTACT ME!</a>
     </header>
     <div class="content">
         <div class="content-left">
@@ -465,7 +517,11 @@
     </div>
 
     <div class="gradient-shadow"></div>
-
+    <div>
+    </div>
+  <br>
+  <div>
+    </div>
     <div class="terminal" id="about-me"> 
         <div class="terminal-header"></div>
         <div class="terminal-body">
@@ -478,6 +534,25 @@
   <br>
   <div>
     </div>
+
+<!-- Footer (Taskbar) -->
+<footer class="footer">
+    <div class="dock">
+        <a href="https://github.com/cdkw" target="_blank" title="GitHub">
+            <img src="./images/github-icon.png" alt="GitHub" />
+        </a>
+        <a href="mailto:NOEMAILYETPLEASEWAIT@gmail.com" target="_blank" title="Gmail">
+            <img src="./images/gmail-icon.png" alt="Gmail" />
+        </a>
+        <a href="https://discord.gg/GnYJa48t7H" target="_blank" title="Discord">
+            <img src="./images/discord-icon.png" alt="Discord" />
+        </a>
+        <!-- Add more icons as needed -->
+    </div>
+</footer>
+
+
+
 
 </body>
 
