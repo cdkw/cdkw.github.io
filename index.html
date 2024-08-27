@@ -184,7 +184,7 @@
             display: inline;
             white-space: pre;
             overflow: hidden;
-            border-right: .15em solid #cccccc; /* Cursor */
+            border-right: .15em solid #cccccc;
             animation: typing 4s steps(30, end), blink-caret .75s step-end infinite;
             line-height: 0.61;
             font-size: 1em;
@@ -205,10 +205,10 @@
             position: absolute;
             bottom: 1;
             width: 100%;
-            height: 1000px; /* Adjust the height as needed */
+            height: 1000px;
             background: linear-gradient(to top, transparent, rgb(1, 85, 1), transparent);
-            opacity: 0.3; /* Adjust opacity as desired */
-            z-index: 0; /* Place it behind the terminal */
+            opacity: 0.3;
+            z-index: 0;
             margin-top: -150px;
             pointer-events: none;
         }
@@ -283,7 +283,7 @@
                 min-height: 250px;
             }
             .gradient-shadow {
-                height: 500px; /* Adjust the height as needed */
+                height: 500px;
                 margin-top: -20px;
             }
         }
@@ -318,7 +318,7 @@
                 min-height: 200px;
             }
             .gradient-shadow {
-                height: 500px; /* Adjust the height as needed */
+                height: 500px;
                 margin-top: -60px;
             }
 
@@ -379,7 +379,7 @@
                 min-height: 150px;
             }
             .gradient-shadow {
-                height: 500px; /* Adjust the height as needed */
+                height: 500px;
                 margin-top: -100px;
             }
 
@@ -435,7 +435,7 @@
             }
             
             .gradient-shadow {
-                height: 500px; /* Adjust the height as needed */
+                height: 500px;
                 margin-top: -120px;
             }
 
@@ -490,18 +490,16 @@ document.addEventListener('DOMContentLoaded', function() {
   const dynamicText = "whoami\nI'm cdkw, a cybersecurity student from Eastern Europe. I have about 2 years in Linux,\nwhich I learned from when I bought my first Raspberry Pi. From that point, I have learned many skills\nlike Network Pentesting, Radio Hijacking, Wifi Cracking, Malware Analysis and not a lot, but enough, OSiNT.\nI plan on learning something new every week and if you want to see my projects check out my blog!\nThank you for reading!\n";
   const finalStaticText = "\n\n[process exited with code 1 (0x00000001)]\nYou can now close this terminal with Ctrl+D, or press Enter to restart.";
 
-  // Set initial static text
   typingElement.innerHTML = staticText;
 
   let hasStartedTyping = false;
 
-  // Function to start typing the dynamic text
   const typeText = () => {
-    if (hasStartedTyping) return;  // Prevent typing if already started
+    if (hasStartedTyping) return;
     hasStartedTyping = true;
 
     let index = 0;
-    const typingSpeed = 50; // Speed in milliseconds
+    const typingSpeed = 50;
 
     function type() {
       if (index < dynamicText.length) {
@@ -509,17 +507,15 @@ document.addEventListener('DOMContentLoaded', function() {
         index++;
         setTimeout(type, typingSpeed);
       } else {
-        // Once the dynamic text is finished, add a 3-second delay before appending the final static text
         setTimeout(() => {
           typingElement.innerHTML += finalStaticText;
-        }, 3000); // 3-second delay
+        }, 3000);
       }
     }
 
-    type(); // Start typing animation
+    type();
   };
 
-  // Add event listener to wait for user interaction before starting typing
   const terminalElement = document.querySelector('.terminal');
   terminalElement.addEventListener('mouseover', typeText);
 });
