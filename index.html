@@ -20,6 +20,10 @@
             color: #ffffff;
         }
 
+        html {
+            scroll-behavior: smooth;
+        }
+
         header {
             display: flex;
             justify-content: space-between;
@@ -481,15 +485,17 @@
 <script>
 document.addEventListener('DOMContentLoaded', function() {
   const typingElement = document.querySelector('.typing-effect');
+  
   const staticText = "Microsoft Windows [Version 10.0.22631.4037]\n(c) Microsoft Corporation. All rights reserved.\n\nC:\\Users\\cdkw&gt;";
-  const dynamicText = "whoami\nThis part is still in work. I am probably currently sleeping so expect to not see this tommorow.\nI will be fixing the text resizing and the typing effect not starting when focused.\n    - 4:45 AM 27/08/2024";
+  const dynamicText = "whoami\nI'm cdkw, a cybersecurity student from Eastern Europe. I have about 2 years in Linux,\nwhich I learned from when I bought my first Raspberry Pi. From that point, I have learned many skills\nlike Network Pentesting, Radio Hijacking, Wifi Cracking, Malware Analysis and not a lot, but enough, OSiNT.\nI plan on learning something new every week and if you want to see my projects check out my blog!\nThank you for reading!\n";
+  const finalStaticText = "\n\n[process exited with code 1 (0x00000001)]\nYou can now close this terminal with Ctrl+D, or press Enter to restart.";
 
-  // Set static text initially and make sure it's not overwritten
+  // Set initial static text
   typingElement.innerHTML = staticText;
 
   let hasStartedTyping = false;
 
-  // Use a function to start typing effect after user interaction
+  // Function to start typing the dynamic text
   const typeText = () => {
     if (hasStartedTyping) return;  // Prevent typing if already started
     hasStartedTyping = true;
@@ -502,6 +508,11 @@ document.addEventListener('DOMContentLoaded', function() {
         typingElement.innerHTML += dynamicText.charAt(index);
         index++;
         setTimeout(type, typingSpeed);
+      } else {
+        // Once the dynamic text is finished, add a 3-second delay before appending the final static text
+        setTimeout(() => {
+          typingElement.innerHTML += finalStaticText;
+        }, 3000); // 3-second delay
       }
     }
 
@@ -512,9 +523,11 @@ document.addEventListener('DOMContentLoaded', function() {
   const terminalElement = document.querySelector('.terminal');
   terminalElement.addEventListener('mouseover', typeText);
 });
-
   </script>
   
   
   
   </html>
+
+
+  
