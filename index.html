@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>cdkw's website</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-C4HFiF2Dh8A5q5Rh78IgpQxo/jI/8eOoAiDsJjq1wQONR8p60olD2HZj7yOgYll4Z8A6y9DOklv0gKD4vFwpRg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <style>
         body, html {
             margin: 0;
@@ -30,7 +31,6 @@
             background-color: rgba(0, 0, 0, 0.3);
             backdrop-filter: blur(0.6px);
         }
-
 
         header h1 {
             margin: 0;
@@ -135,7 +135,6 @@
         }
 
         @media screen and (max-width: 1400px) {
-
             .content-left h2 {
                 font-size: 3.5em;
             }
@@ -197,7 +196,6 @@
             .content-right img {
                 width: 200px;
             }
-
         }
 
         @media screen and (max-width: 600px) {
@@ -241,8 +239,6 @@
                 background-color: rgba(0, 0, 0, 0.5);
                 backdrop-filter: blur(1px);
             }
-
-            
         }
 
         @media screen and (max-width: 433px) {
@@ -279,8 +275,67 @@
                 background-color: rgba(0, 0, 0, 0.5);
                 backdrop-filter: blur(1px);
             }
+        }
 
 
+        
+        .terminal {
+            background: #0C0C0C;
+            color: #ffffff;
+            border-radius: 5px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
+            margin: 50px auto;
+            width: 90%;
+            height: 400px;
+            max-width: 1200px;
+            min-height: 500px;
+            padding: 20px;
+            font-family: 'Consolas', monospace;
+            position: relative;
+            padding-top: 79px; /* space for header */
+            overflow: auto; /* Allow scrolling if content overflows */
+        }
+
+
+        
+        .terminal-header {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 79px;
+            background-image: url('./images/header-terminal.png');
+            background-size: 100%;
+            background-repeat: no-repeat;
+
+        }
+
+        .terminal-body {
+            font-family: 'Cascadia Mono', monospace;
+            white-space: normal;
+            word-wrap: break-word;
+            color: #cccccc;
+            margin-top: -27px;
+            margin-left: -12px;
+        }
+
+        .typing-effect {
+            display: inline;
+            white-space: pre;
+            overflow: hidden;
+            border-right: .15em solid #cccccc; /* Cursor */
+            animation: typing 4s steps(30, end), blink-caret .75s step-end infinite;
+            line-height: 0.61;
+        }
+
+        @keyframes typing {
+            from { width: 0; }
+            to { width: 100%; }
+        }
+
+        @keyframes blink-caret {
+            from, to { border-color: transparent; }
+            50% { border-color: #cccccc; }
         }
     </style>
 </head>
@@ -295,12 +350,56 @@
             <p>I'm cdkw, a cybersecurity student from Eastern Europe.<br>Thank you for visiting my website! 😘</p>
             <div class="buttons">
                 <a href="./error.html" class="btn-green">My projects and blogs</a>
-                <a href="./error.html" class="btn-outline">About me</a>
+                <a href="#about-me" class="btn-outline">About me</a>
             </div>
         </div>
         <div class="content-right">
             <img src="./images/torpc.png" alt="Logo">
         </div>
     </div>
+
+    <div class="terminal" id="about-me"> 
+        <div class="terminal-header"></div>
+        <div class="terminal-body">
+            <div class="typing-effect"></div>
+        </div>
+    </div>
+
+    <div>
+    </div>
+  <br>
+  <div>
+    </div>
+
 </body>
-</html>
+
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const typingElement = document.querySelector('.typing-effect');
+        const staticText = "Microsoft Windows [Version 10.0.22631.4037]\n(c) Microsoft Corporation. All rights reserved.\n\nC:\\Users\\cdkw&gt;";
+        const dynamicText = "whoami\nThis part is still in work. I am probably currently sleeping so expect to not see this tommorow.\nI will be fixing the text resizing and the typing effect not starting when focused.\n    - 4:45 AM 27/08/2024";
+
+        // Set static text initially and make sure it's not overwritten
+        typingElement.innerHTML = staticText;
+
+        // Use a function to start typing effect after static text is fully visible
+        const typeText = () => {
+            let index = 0;
+            const typingSpeed = 50; // Speed in milliseconds
+
+            function type() {
+                if (index < dynamicText.length) {
+                    typingElement.innerHTML += dynamicText.charAt(index);
+                    index++;
+                    setTimeout(type, typingSpeed);
+                }
+            }
+
+            type(); // Start typing animation
+        };
+
+        // Delay typing effect to ensure static text is displayed first
+        setTimeout(typeText, 1000); // Adjust the delay if needed
+    });
+</script></html>
