@@ -72,6 +72,7 @@
             padding: 0 215px;
             background-color: rgba(0, 0, 0, 0.1); /* culoare transparenta */
             backdrop-filter: blur(0.3px); /* blur */
+            z-index: 1;
         }
 
         .content-left {
@@ -154,7 +155,6 @@
             overflow: auto;
         }
 
-
         
         .terminal-header {
             position: absolute;
@@ -198,7 +198,17 @@
         }
 
 
-
+        .gradient-shadow {
+            position: absolute;
+            bottom: 1;
+            width: 100%;
+            height: 1000px; /* Adjust the height as needed */
+            background: linear-gradient(to top, transparent, rgb(1, 85, 1), transparent);
+            opacity: 0.3; /* Adjust opacity as desired */
+            z-index: 0; /* Place it behind the terminal */
+            margin-top: -150px;
+            pointer-events: none;
+        }
 
 /*-------------------- MOBILE & DIFFERENT RESOLUTIONS SUPPORT ------------------------------*/
         @media screen and (max-width: 1400px) {
@@ -230,6 +240,7 @@
         
             .terminal-body {
                 font-size: 0.8em;
+            }
 
             .terminal {
                 width: 90%;
@@ -237,7 +248,6 @@
                 max-width: 1200px;
                 min-height: 270px;
             }
-
         }
 
         @media screen and (max-width: 810px) {
@@ -269,7 +279,10 @@
                 max-width: 1200px;
                 min-height: 250px;
             }
-
+            .gradient-shadow {
+                height: 500px; /* Adjust the height as needed */
+                margin-top: -20px;
+            }
         }
 
         @media screen and (max-width: 715px) {
@@ -301,7 +314,10 @@
                 max-width: 1200px;
                 min-height: 200px;
             }
-
+            .gradient-shadow {
+                height: 500px; /* Adjust the height as needed */
+                margin-top: -60px;
+            }
 
         }
 
@@ -359,7 +375,10 @@
                 max-width: 1200px;
                 min-height: 150px;
             }
-
+            .gradient-shadow {
+                height: 500px; /* Adjust the height as needed */
+                margin-top: -100px;
+            }
 
         }
 
@@ -411,7 +430,11 @@
                 max-width: 1200px;
                 min-height: 100px;
             }
-
+            
+            .gradient-shadow {
+                height: 500px; /* Adjust the height as needed */
+                margin-top: -120px;
+            }
 
 
         }
@@ -438,6 +461,8 @@
         </div>
     </div>
 
+    <div class="gradient-shadow"></div>
+
     <div class="terminal" id="about-me"> 
         <div class="terminal-header"></div>
         <div class="terminal-body">
@@ -455,31 +480,42 @@
 
 
 <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        const typingElement = document.querySelector('.typing-effect');
-        const staticText = "Microsoft Windows [Version 10.0.22631.4037]\n(c) Microsoft Corporation. All rights reserved.\n\nC:\\Users\\cdkw&gt;";
-        const dynamicText = "whoami\nThis part is still in work. I am probably currently sleeping so expect to not see this tommorow.\nI will be fixing the text resizing and the typing effect not starting when focused.\n    - 4:45 AM 27/08/2024";
+document.addEventListener('DOMContentLoaded', function() {
+  const typingElement = document.querySelector('.typing-effect');
+  const staticText = "Microsoft Windows [Version 10.0.22631.4037]\n(c) Microsoft Corporation. All rights reserved.\n\nC:\\Users\\cdkw&gt;";
+  const dynamicText = "whoami\nThis part is still in work. I am probably currently sleeping so expect to not see this tommorow.\nI will be fixing the text resizing and the typing effect not starting when focused.\n    - 4:45 AM 27/08/2024";
 
-        // Set static text initially and make sure it's not overwritten
-        typingElement.innerHTML = staticText;
+  // Set static text initially and make sure it's not overwritten
+  typingElement.innerHTML = staticText;
 
-        // Use a function to start typing effect after static text is fully visible
-        const typeText = () => {
-            let index = 0;
-            const typingSpeed = 50; // Speed in milliseconds
+  let hasStartedTyping = false;
 
-            function type() {
-                if (index < dynamicText.length) {
-                    typingElement.innerHTML += dynamicText.charAt(index);
-                    index++;
-                    setTimeout(type, typingSpeed);
-                }
-            }
+  // Use a function to start typing effect after user interaction
+  const typeText = () => {
+    if (hasStartedTyping) return;  // Prevent typing if already started
+    hasStartedTyping = true;
 
-            type(); // Start typing animation
-        };
+    let index = 0;
+    const typingSpeed = 50; // Speed in milliseconds
 
-        // Delay typing effect to ensure static text is displayed first
-        setTimeout(typeText, 1000); // Adjust the delay if needed
-    });
-</script></html>
+    function type() {
+      if (index < dynamicText.length) {
+        typingElement.innerHTML += dynamicText.charAt(index);
+        index++;
+        setTimeout(type, typingSpeed);
+      }
+    }
+
+    type(); // Start typing animation
+  };
+
+  // Add event listener to wait for user interaction before starting typing
+  const terminalElement = document.querySelector('.terminal');
+  terminalElement.addEventListener('mouseover', typeText);
+});
+
+  </script>
+  
+  
+  
+  </html>
